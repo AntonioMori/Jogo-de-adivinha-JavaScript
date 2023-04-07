@@ -1,0 +1,71 @@
+<meta charset = "UFT-8">
+<body bgcolor="#aa80ff">
+
+<script>
+	
+	function arredonda(valor) {
+		return Math.round(valor);
+	}
+
+	function titulo(titulo){
+
+		document.write("<h1>" + titulo + "</h1>");
+		
+	}
+
+ 	function subTitulo(subTitulo){
+
+		document.write("<h2>" + subTitulo + "</h2>");
+		
+	}
+
+	function paragrafo(paragrafo){
+
+		document.write("<p>" + paragrafo + "</p>");
+	}
+
+	function texto(texto){
+
+		document.write(texto);
+		pulaLinha();
+	}
+
+	function sorteio(max) {
+  		return Math.floor(Math.random() * max);
+			}
+
+
+
+//titulo("Tente acertar o número !");
+//subTitulo("Ele pode variar de 0 a 10!"); 
+var numeroAleatorio = sorteio(10);
+console.log(numeroAleatorio);
+
+
+var chute = parseInt(prompt("Digite o seu chute: "));
+var chances = 3
+if (chute == numeroAleatorio) {
+subTitulo("Parabens, você chutou "+chute+" e acertou o número!!");}
+
+
+if (chute != numeroAleatorio) {
+	for (var i = 1; i >= 0; i--) {
+		chances -=1
+		if(chute > numeroAleatorio){
+			var dica = "Dica: o número é menor que o seu chute!"}
+		if (chute < numeroAleatorio) {
+			var dica = "Dica: o número é maior que o seu chute!"}
+
+
+		alert("Você chutou " + chute + " e errou, tente novamente! "+dica +" Você ainda tem "+ chances +" chances!")
+		var chute = parseInt(prompt("Digite o seu chute: "));
+		if (chute == numeroAleatorio) {subTitulo("Parabens, você chutou "+chute+" e acertou o número!!")
+			break }
+	}
+}
+
+if (chute !=numeroAleatorio){
+	subTitulo("GAME OVER! <hr>");
+	paragrafo("O número correto era "+ numeroAleatorio);} 
+
+</script>
